@@ -24,20 +24,19 @@ namespace TopServerPlayers
 
             var filteredPlayersByTopLevel = players.OrderByDescending(player => player.Level).Take(topThree);
 
-            Console.WriteLine("Топ - 3 игрока по уровню прокачки:");
-
-            foreach (var player in filteredPlayersByTopLevel)
-            {
-                player.ShowInfo();
-            }
-
+            Console.WriteLine($"Топ - {topThree} игрока по уровню прокачки:");
+            ShowFilteredPlayers(filteredPlayersByTopLevel);
             Console.WriteLine("---------------------------------------------------");
 
             var filteredPlayersByTopStrength = players.OrderByDescending(player => player.Strength).Take(topThree);
 
-            Console.WriteLine("Топ - 3 игрока по уровню силы:");
+            Console.WriteLine($"Топ - {topThree} игрока по уровню силы:");
+            ShowFilteredPlayers(filteredPlayersByTopStrength);
+        }
 
-            foreach (var player in filteredPlayersByTopStrength)
+        static void ShowFilteredPlayers(IEnumerable<Player> filteredPlayers)
+        {
+            foreach (var player in filteredPlayers)
             {
                 player.ShowInfo();
             }
