@@ -17,7 +17,6 @@ namespace TopServerPlayers
             int minimumStrength = 10;
             int topThree = 3;
 
-
             for (int i = 0; i < maximumPlayers; i++)
             {
                 players.Add(new Player($"Player_{i + 1}", random.Next(minimumLevel, maximumLevel), random.Next(minimumStrength, maximumStrength)));
